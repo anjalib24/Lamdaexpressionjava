@@ -1,0 +1,89 @@
+A functional interface in Java 8 is an interface that contains exactly one abstract method. These interfaces can be implemented using lambda expressions, method references, or anonymous classes. The concept of functional interfaces is central to the new functional programming features introduced in Java 8, such as lambda expressions and the Stream API.
+
+ Characteristics of Functional Interfaces
+
+1. **Single Abstract Method (SAM)**: A functional interface must have exactly one abstract method.
+2. **Default and Static Methods**: It can have any number of default or static methods.
+3. **`@FunctionalInterface` Annotation**: Although not mandatory, it's a good practice to use the `@FunctionalInterface` annotation to indicate that the interface is intended to be a functional interface. This helps the compiler enforce the single abstract method rule.
+
+ Examples of Functional Interfaces
+ Built-in Functional Interfaces
+
+Java 8 provides several built-in functional interfaces in the `java.util.function` package, such as `Predicate`, `Function`, `Consumer`, `Supplier`, etc.
+
+1. **`Predicate<T>`**: Represents a predicate (boolean-valued function) of one argument.
+    ```java
+    @FunctionalInterface
+    public interface Predicate<T> {
+        boolean test(T t);
+    }
+    ```
+
+2. **`Function<T, R>`**: Represents a function that accepts one argument and produces a result.
+    ```java
+    @FunctionalInterface
+    public interface Function<T, R> {
+        R apply(T t);
+    }
+    ```
+
+3. **`Consumer<T>`**: Represents an operation that accepts a single input argument and returns no result.
+    ```java
+    @FunctionalInterface
+    public interface Consumer<T> {
+        void accept(T t);
+    }
+    ```
+
+4. **`Supplier<T>`**: Represents a supplier of results.
+    ```java
+    @FunctionalInterface
+    public interface Supplier<T> {
+        T get();
+    }
+    ```
+
+#### Custom Functional Interface
+
+You can also define your own functional interface. Here's an example:
+
+```java
+@FunctionalInterface
+interface MyFunctionalInterface {
+    void myMethod();
+}
+```
+
+### Using Functional Interfaces with Lambda Expressions
+
+You can use lambda expressions to provide implementations for functional interfaces. Here's an example using the custom functional interface:
+
+```java
+public class FunctionalInterfaceExample {
+    public static void main(String[] args) {
+        // Using lambda expression to implement MyFunctionalInterface
+        MyFunctionalInterface funcInterface = () -> System.out.println("Hello, Functional Interface!");
+
+        // Calling the method
+        funcInterface.myMethod();
+    }
+}
+```
+
+### Explanation
+
+1. **Custom Functional Interface**: The `MyFunctionalInterface` interface has a single abstract method `myMethod`.
+2. **Lambda Expression**: The lambda expression `() -> System.out.println("Hello, Functional Interface!")` provides an implementation of the `myMethod`.
+3. **Calling the Method**: The `myMethod` is called on the `funcInterface` instance.
+
+### Benefits of Functional Interfaces
+
+- **Conciseness**: Reduces boilerplate code and enhances readability.
+- **Functional Programming**: Enables functional programming concepts in Java.
+- **Interoperability**: Easily integrates with Java's Stream API and other functional programming features.
+
+### Conclusion
+
+Functional interfaces are a key feature in Java 8 that enable the use of lambda expressions and method references, making it easier to write more concise and readable code. They are an essential part of the functional programming capabilities in Java. 
+
+If you have more questions or need further examples, feel free to ask!

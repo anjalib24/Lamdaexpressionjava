@@ -1,0 +1,52 @@
+Yes, lambda expressions in Java can indeed have parameter names, which you use to refer to the input values. The names of these parameters are defined by you when you write the lambda expression, and they help make the lambda’s purpose clear.
+
+### Parameter Names in Lambda Expressions
+
+When writing a lambda expression, you specify parameter names to represent the inputs to the lambda. These names are used within the lambda body to refer to the parameters.
+
+**Basic Syntax:**
+```java
+(parameters) -> expression
+```
+or
+```java
+(parameters) -> { statements; }
+```
+
+### Examples
+
+#### Example 1: Single Parameter
+
+If your lambda expression takes a single parameter, you can name it as needed:
+
+```java
+List<String> list = Arrays.asList("Apple", "Banana", "Cherry", "Date");
+
+list.forEach(s -> System.out.println(s)); // 's' is the parameter name
+```
+
+In this example, `s` is the name of the parameter, and it's used to refer to each element of the list.
+
+#### Example 2: Multiple Parameters
+
+If your lambda expression takes multiple parameters, you name each parameter:
+
+```java
+List<String> list = Arrays.asList("Apple", "Banana", "Cherry", "Date");
+
+Collections.sort(list, (s1, s2) -> s1.compareTo(s2)); // 's1' and 's2' are parameter names
+```
+
+Here, `s1` and `s2` are parameter names used to compare two strings.
+
+### Parameter Names and Scope
+
+- **Naming**: The names you choose for parameters should be descriptive enough to indicate their role. For example, in a lambda that processes `String` objects, names like `s` or `str` are common.
+- **Scope**: The parameter names used in a lambda expression are local to the lambda itself. They do not affect the scope outside the lambda.
+
+### Summary
+
+- **Descriptive Names**: Choosing meaningful parameter names helps in understanding what the lambda expression is doing.
+- **Consistency**: Use parameter names consistently to ensure clarity in more complex expressions.
+
+Lambda expressions offer flexibility in naming parameters, which helps maintain code readability and expressiveness. If you have any more questions about lambda expressions or anything else, feel free to ask!
